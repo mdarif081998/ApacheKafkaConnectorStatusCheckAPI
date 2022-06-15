@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Connectors</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <!-- Bootstrap 5 JS -->
+    <script src="js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="main-content">
+        {{>header}}
+
+        <div style="margin-top:5%;"></div>
+
+  <div class="container" style="width:60%;">
+    <table id="connect">
+        <thead>
+            <tr>
+                <th scope="col">Serial No.</th>
+                <th scope="col">Connector Name</th>
+            </tr>
+        </thead>
+    </table>
+  </div>
+
+    <!-- TABLE -->
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.1/css/dataTables.bootstrap5.min.css">
+<script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.11.1/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.11.1/js/dataTables.bootstrap5.min.js"></script>
+
+<script type="text/javascript" class="init">
+
+$(document).ready(function() {
+  // Create a new DataTable object
+  table = $('#connect').DataTable({
+       "lengthMenu": [ [25, 50, 75, -1], [25, 50, 100, "All"] ],
+       "pagingType": "simple",
+       scrollY: 400,
+       scrollCollapse: true,
+       ajax: {
+         url: '/connectors',
+       },
+       columns: [
+           { data: 'serialNumber' },
+           { data: 'connectorName' }
+         ]
+       })
+});
+
+</script>
+        
+    </div>
+
+    {{>footer}}
+
+   <!-- <script src="/js/app.js"></script> -->
+</body>
+
+</html>
